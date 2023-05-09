@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+  
+{% if login_ok %}
+{% csrf_token %}
+<div class="d-flex flex-column align-items-center justify-content-center rounded fw-bold bg-white shadow" style="height: 7rem; width: 15rem;">
+    Welcome {{ username }}
+<div>
+<div><a href="{% url 'login' %}">Go back</a></div>
+{% else %}
+<div class="d-flex flex-column align-items-center justify-content-center rounded fw-bold bg-white shadow" style="height: 7rem; width: 15rem;">
+    Wrong credentials
+    <a href="{% url 'login' %}">Try again</a>
+<div>    
+    {% endif %}
+    
+
+
+
+{% endblock content %}
+
